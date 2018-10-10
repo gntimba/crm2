@@ -1,0 +1,15 @@
+form { width: 500px; }
+<<<<<<< HEAD
+label { float: left; width: 150px; }
+input[type=text] { float: right; width: 250px; }
+input[type=email] { float: right; width: 250px; }
+select { float: left; width: 100px; }
+=======
+label { float: left; width: 250px; }
+input[type=text] { float: right; width: 250px; }
+input[type=email] { float: right; width: 250px; }
+select { float: left; width: 150px; }
+>>>>>>> f7e929d4fc2b0b4dee2a8afc14aaa91591dd7d5b
+textarea { float: left; width: 500px; }
+.clear { clear: both; height: 0; line-height: 0; }
+.floatright { float: right; }
