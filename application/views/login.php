@@ -243,7 +243,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 							</div>
 
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="../20160423_180456.jpg" alt="First slide">
+								<img class="d-block img-fluid" src="<?php echo base_url('assets/img/features.jpg') ?>" alt="First slide">
 								<div class="carousel-caption d-none d-md-block">
 									<div class="banner-text">
 										<h2>This is Heaven</h2>
@@ -256,7 +256,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 							</div>
 
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="../20160131_110421_Richtone(HDR).jpg" alt="First slide">
+								<img class="d-block img-fluid" src="<?php echo base_url('assets/img/grass.jpg') ?>" alt="First slide">
 								<div class="carousel-caption d-none d-md-block">
 									<div class="banner-text">
 										<h2>This is Heaven</h2>

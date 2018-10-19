@@ -1,6 +1,6 @@
 
 <link href="<?php echo base_url(); ?>assets/css/stylesheet.css" rel="stylesheet" />
-<form id="contact" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form id="contact"  method="post">
 Name
 <input placeholder="Name" type="text"  required autofocus name="name" >
 <br><br>
@@ -32,7 +32,7 @@ Province*
 <input placeholder="Zip*" name= "zip" type="text"  required >
 <br><br>
 <label for="country">Country*</label>
-<select name="country" size="1"> 
+<select name="country" id="country" size="1"> 
  <option value="Afghanistan">Afghanistan</option>
 <option value="Albania">Albania</option>
 <option value="United Kingdom">United Kingdom</option>
@@ -62,7 +62,7 @@ Province*
 
 <br><br>
 <label for="status">Status*</label>
-<select name="dropdown" size="1"> 
+<select name="status" id="status" size="1"> 
 <option value="Attempted">Attempted</option> 
 <option value="New opportunity">New opportunity</option> 
 <option value="Contacted">Contacted</option>
@@ -77,7 +77,48 @@ Comment:
 </label>
 <br><br>
 <textarea name="comment" rows="5" cols="100" placeholder="Type in a comment..."></textarea>
-<br><br><br><br><br><br>
-<button type="submit" name='submit' > Submit Client</button>
-<?php //echo $message; ?>
+<br><br><br>
+<button type="submit" name='submit' class="btn btn-success" > Submit Client</button>
+	<div id="loading" style="display: none">
+		<center><img src="<?php echo base_url();?>assets/img/Ripple-0.7s-200px.gif" width="100px" alt=""/>
+		</center>
+	</div>
+<div id="suc"></div>
 </form>
+	
+	
+	<script>
+$( document ).ready( function () {
+	$('#contact').submit(function(event){
+		$('#loading').show();
+		event.preventDefault();
+		
+				$.ajax( {
+				type: 'POST',
+				url: '<?php echo base_url() ?>customer/manual_reg',
+				dataType: 'json',
+				data: $("#contact").serialize(),
+				success: function ( data ) {
+					console.log( data );
+					$('#suc').html(data.message);
+					$('#loading').hide();
+					fade();
+					//$(".form-group input:checked").parent().remove();
+				}
+			} );
+ 
+});
+
+});
+	function fade(){
+
+	setTimeout( function () {
+	
+			$( '#success' ).fadeOut( "slow" );
+			/*$('#success').fadeOut(500); */
+		
+	}, 1000 );
+
+	}
+
+</script>

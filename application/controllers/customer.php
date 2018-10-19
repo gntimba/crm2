@@ -28,23 +28,25 @@ class Customer extends CI_Controller {
 		$this->load->view( 'layout\main', $data );
 	}
 
-		public function dashjson()
-	{
+	public
+
+	function dashjson() {
 		$data[ 'newopportunity' ] = $this->dashboard_model->get_newopportunity();
 		$data[ 'disqualified' ] = $this->dashboard_model->get_disqualified();
 		$data[ 'notattempted' ] = $this->dashboard_model->get_notattempted();
-		
-		
+
+
 		$this->load->view( 'jsons\dash', $data );
 	}
-		public function dashtable()
-	{
+	public
+
+	function dashtable() {
 
 		$data[ 'monthee' ] = $this->dashboard_model->get_bargraphdata();
-		
+
 		$this->load->view( 'jsons\table', $data );
 	}
-	
+
 	public
 
 	function cust() {
@@ -178,7 +180,7 @@ class Customer extends CI_Controller {
 
 	function customer_con() {
 		//$side = $_SESSION[ 'sidebar' ];
-$data[ 'salesname' ] = $this->customer_model->get_sales();
+		$data[ 'salesname' ] = $this->customer_model->get_sales();
 		$data[ 'header' ] = 'CUSTOMERS';
 		$data[ 'customers' ] = $this->customer_model->get_customers( 'Not Attempted' );
 		$data[ 'products' ] = $this->customer_model->get_products();
@@ -266,8 +268,8 @@ $data[ 'salesname' ] = $this->customer_model->get_sales();
 		$data[ 'header' ] = 'Per Sales';
 		$data[ 'sidebar' ] = $_SESSION[ 'sidebar' ];
 		$data[ 'active' ] = 'Leads_Per_Sale';
-		
-				$data[ 'salesid' ] = $this->Viewpersales_model->get_salesid();
+
+		$data[ 'salesid' ] = $this->Viewpersales_model->get_salesid();
 		//$data[ 'names' ] = $this->Viewpersales_model->get_names();
 		$data[ 'months' ] = $this->Viewpersales_model->get_months();
 		//$data[ 'lead' ] = $this->Viewpersales_model->get_leads($sales,$status,$month);
@@ -552,42 +554,42 @@ $data[ 'salesname' ] = $this->customer_model->get_sales();
 		$this->load->view( 'jsons\task', $data );
 
 	}
-	
-	
-/*	public
-
-	function table1() {
-
-		$data[ 'salesid' ] = $this->Viewpersales_model->get_salesid();
-		//$data[ 'names' ] = $this->Viewpersales_model->get_names();
-		$data[ 'months' ] = $this->Viewpersales_model->get_months();
-		//$data[ 'lead' ] = $this->Viewpersales_model->get_leads($sales,$status,$month);
-		$data[ 'status' ] = $this->Viewpersales_model->get_status();
-		//$data[ 'target' ] = $this->Viewpersales_model->get_target($sales,$month);
-
-		$data['sidebar']=$_SESSION[ 'sidebar' ];
-		$data['active']='dashboard';
-		$data['header']='Dashboard';
-		$data[ 'main_content' ] = 'view_leadspersales';
 
 
-		$this->load->view( 'layout\main', $data );
-	}*/
+	/*	public
+
+		function table1() {
+
+			$data[ 'salesid' ] = $this->Viewpersales_model->get_salesid();
+			//$data[ 'names' ] = $this->Viewpersales_model->get_names();
+			$data[ 'months' ] = $this->Viewpersales_model->get_months();
+			//$data[ 'lead' ] = $this->Viewpersales_model->get_leads($sales,$status,$month);
+			$data[ 'status' ] = $this->Viewpersales_model->get_status();
+			//$data[ 'target' ] = $this->Viewpersales_model->get_target($sales,$month);
+
+			$data['sidebar']=$_SESSION[ 'sidebar' ];
+			$data['active']='dashboard';
+			$data['header']='Dashboard';
+			$data[ 'main_content' ] = 'view_leadspersales';
+
+
+			$this->load->view( 'layout\main', $data );
+		}*/
 
 	public
 
 	function table() {
-			$sales=$this->input->get('sales');
-			$status=$this->input->get('status');
-			$month=$this->input->get('month');
-			$data[ 'target' ] = $this->Viewpersales_model->get_target($sales,$month);
-			$data[ 'lead' ] = $this->Viewpersales_model->get_leads($sales,$status,$month);
-			
-			$data['test']=array($sales,$status,$month);
-		
-		$data[ 'names' ] = $this->Viewpersales_model->get_names($sales,$status,$month);
+		$sales = $this->input->get( 'sales' );
+		$status = $this->input->get( 'status' );
+		$month = $this->input->get( 'month' );
+		$data[ 'target' ] = $this->Viewpersales_model->get_target( $sales, $month );
+		$data[ 'lead' ] = $this->Viewpersales_model->get_leads( $sales, $status, $month );
+
+		$data[ 'test' ] = array( $sales, $status, $month );
+
+		$data[ 'names' ] = $this->Viewpersales_model->get_names( $sales, $status, $month );
 		//$data['test']=array($sales,$status,$month);
-	
+
 
 		$this->load->view( 'test_view', $data );
 	}
@@ -598,33 +600,91 @@ $data[ 'salesname' ] = $this->customer_model->get_sales();
 
 	function aboutUs() {
 
-		
+
 		$data[ 'salesname' ] = $this->customer_model->get_sales();
 		$data[ 'sidebar' ] = $_SESSION[ 'sidebar' ];
-		$data['active']='';
-		$data['header']='ABOUT US';
+		$data[ 'active' ] = '';
+		$data[ 'header' ] = 'ABOUT US';
 		$data[ 'main_content' ] = 'view_AboutUs';
 
 
 		$this->load->view( 'layout\main', $data );
 	}
-	
-		//calendar
+
+	//calendar
 	public
 
 	function calendar() {
 
 		$data[ 'salesname' ] = $this->customer_model->get_sales();
 		$data[ 'sidebar' ] = $_SESSION[ 'sidebar' ];
-		$data['active']='';
-		$data['header']='Calendar';
+		$data[ 'active' ] = '';
+		$data[ 'header' ] = 'Calendar';
 		$data[ 'main_content' ] = 'view_calendar';
 
 
 		$this->load->view( 'layout\main', $data );
 	}
+	public
+
+	function manual_reg() {
+
+		$salesid = $_SESSION[ 'saleid' ];
+		$this->load->model( 'increment_model' );
+		$name = $this->input->post( 'name' );
+		$surname = $this->input->post( 'surname' );
+		$email = $this->input->post( 'email' );
+		$company = $this->input->post( 'company' );
+		$designation = $this->input->post( 'designation' );
+		$phone = $this->input->post( 'phone' );
+		$addr1 = $this->input->post( 'addr1' );
+		$city = $this->input->post( 'city' );
+		$province = $this->input->post( 'province' );
+		$zip = $this->input->post( 'zip' );
+		$country = $this->input->post( 'country' );
+		$status_name = $this->input->post( 'status' );
+		$comment = $this->input->post( 'comment' );
+
+
+		$custid = add( $this->increment_model->get_customers(), 'C' );
+		$status = add( $this->increment_model->get_status(), 'ST' );
+		$taskid = add( $this->increment_model->task_incr(), 'A' );
+
+		$customer = array(
+			'CustID' => $custid,
+			'Name' => $name,
+			'Surname' => $surname,
+			'Email' => $email,
+			'Phone' => $phone,
+			'Company' => $company,
+			'Designation' => $designation,
+			'Address' => $addr1,
+			'City' => $city,
+			'Zip_code' => $zip,
+			'Province' => $province,
+			'Country' => $city,
+			'Comment'=>$comment
+		);
+
+		$status1 = array( 'StatusID' => $status,
+			'CustID' => $custid,
+			'Status_Name' => $status_name );
+
+		$task = array(
+			'tsID' => $taskid,
+			'SalesID' => $salesid,
+			'custid' => $custid
+		);
+			$data['customer']=$name.' '.$surname;
+		$this->customer_model->insert( 'Customer', $customer );
+		$this->customer_model->insert( 'Status', $status1 );
+		$this->customer_model->form_insert( 'AssignTask', $task );
+		$this->load->view( 'jsons\manual_j',$data );
+
+	}
 
 
 }
 
+?>
 ?>
