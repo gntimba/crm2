@@ -2,16 +2,16 @@
 
 $_SESSION[ 'message' ] = '';
 
-$connectionInfo = array( "CharacterSet" => "UTF-8", "UID" => "ikworx", "PWD" => "Xibelani@54" );
-$conn1 = sqlsrv_connect( '192.168.176.35\SQLEXPRESS', $connectionInfo );
+$connectionInfo = array( "CharacterSet" => "UTF-8", "UID" => "ikworx", "PWD" => "Qx0Fk?_64I5E" );
+$conn1 = sqlsrv_connect( 'den1.mssql6.gear.host', $connectionInfo );
 //searching for the database 
 if ( isset( $_POST[ 'submit' ] ) ) {
 	$pass = $_POST[ 'password' ];
 	$user = strtoupper( $_POST[ 'email' ] );
 	$user = stripslashes( $user );
 	$pass = stripslashes( $pass );
-	$temp = explode( '@', $user );
-	$sup = "SELECT name FROM master.dbo.sysdatabases where name!='master' and name!='msdb' and name!='model' and name='$temp[1]'";
+	$temp = 'ikworx';
+	$sup = "SELECT name FROM master.dbo.sysdatabases where name!='master' and name!='msdb' and name!='model' and name='$temp'";
 
 	$params = array();
 	$options = array( "Scrollable" => SQLSRV_CURSOR_KEYSET );

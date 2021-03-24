@@ -76,10 +76,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.176.35\SQLEXPRESS',
+	'hostname' => 'den1.mssql6.gear.host',
 	'username' => 'ikworx',
-	'password' => 'Xibelani@54',
-	'database' => 'ikworx.co.za',
+	'password' => 'Qx0Fk?_64I5E',
+	'database' => 'ikworx',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
